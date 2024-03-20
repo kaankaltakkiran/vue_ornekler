@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İlk Vuejs Uygulaması</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
+  <div id="app">
+    <h1>{{title}}</h1>
+    <p>Ad: {{name}}</p>
+    <p>Soyad: {{surName}}</p>
+    <p>Yaş: {{yas}}</p>
+  </div>
+</body>
+<script>
+  // Vudeki CreateApp fonksiyonunu kullanarak bir uygulama oluşturuyoruz
+  const {createApp} = Vue;
+ /*  {} içine parametleler için
+  mount ile nereye monte edileceğini belirtiyoruz
+  data diye  metot oluşturup return ile obje dönüyoruz */
+  createApp ({
+   data(){
+    return{
+      title:"Merhaba Vuejs",
+      name:"Kaan",
+      surName:"Kaltakkıran",
+      yas:25
+    }
+   }
+  }).mount('#app');
+</script>
+</html>
