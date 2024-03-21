@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İlk Vuejs Uygulaması</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
+  <div id="app">
+    <h1>{{title}}</h1>
+    <p>{{age}}</p>
+    <button v-on:click="age++" >Yaşımı Arttır</button>
+    <button v-on:click="age--">Yaşımı Azalt</button>
+    <hr>
+    <button v-on:click="arttır" >Yaşımı Arttır Fonksiyonla</button>
+    <button v-on:click="azalt()">Yaşımı Azalt Fonksiyonla</button>
+    <hr>
+    <button v-on:click="onarttır">Yaşımı 10 arttır Fonksiyonla</button>
+    <button v-on:click="onazalt">Yaşımı 10 azalt Fonksiyonla</button>
+    <hr>
+    <div v-on:mousemove="updateXY">{{x}},{{y}}</div>
+    <hr>
+    <p>{{counter}}</p>
+    <button v-on:click="counterFunc">Counter function</button>
+  </div>
+</body>
+<script src="/app.js"></script>
+</html>

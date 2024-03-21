@@ -5,5 +5,5 @@ const { createApp } = Vue;
   data diye  metot oluşturup return ile obje dönüyoruz */
  /*  değişken,obje,dizi tanımlama */
  createApp({
-
+ 
  }).mount('#app');
