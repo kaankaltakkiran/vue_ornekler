@@ -24,6 +24,10 @@
     <hr>
     <p>{{counter}}</p>
     <button v-on:click="counterFunc">Counter function</button>
+    <hr>
+     <!--   sadece bir kere arttır -->
+     <button v-on:click.once="arttır" >Bir kere arttırmaya izin verir</button>
+     <a href="https://www.google.com" v-on:click.prevent="prevent">Google'a git</a>
   </div>
 </body>
 <script src="/app.js"></script>
