@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İlk Vuejs Uygulaması</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
+  <div id="app">
+<h1>{{title}}</h1>
+<button v-on:click="error=!error">Hata Göster</button>
+<button v-on:click="success=!success">Başarılı</button>
+<!-- v-if içindeki ifade doğruysa gösterir -->
+<!-- <p v-if="error">Hata Oluştu</p>
+<p v-else-if="success">İşlem Başarılı</p> -->
+<p v-show="error" >Hata Oluştu</p>
+<p v-show="success" >Başarılı</p>
+</body>
+<script src="/app.js"></script>
+</html>
