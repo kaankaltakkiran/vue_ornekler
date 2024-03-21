@@ -9,7 +9,14 @@
 <body>
 <!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
   <div id="app">
-
+    <button v-on:click="a++">A Arttır</button>
+    <button v-on:click="b++">B Arttır</button>
+    <p>A:{{a}}</p>
+    <p>B:{{b}}</p>
+    <hr>
+    <p>Age + A : {{aEkle}}</p>
+    <p>Age + B : {{bEkle}}</p>
+  </div>
 </body>
 <script src="/app.js"></script>
 </html>
