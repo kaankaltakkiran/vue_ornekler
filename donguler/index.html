@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İlk Vuejs Uygulaması</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
+  <div id="app">
+<h1>{{title}}</h1>
+<ul>
+  <!-- v-for for döngüsü -->
+  <li v-for="character in characters">{{character}}</li>
+</ul>
+<ul>
+  <li v-for="(ninja,index) in ninjas">{{index}}, {{ninja.name}} - {{ninja.age}}</li>
+</ul>
+<!-- burda eleman sayısı kadar div oluşturulacak -->
+<div v-for="(ninja,index) in ninjas">
+  <h2>{{index}}. {{ninja.name}}</h2>
+  <p>{{ninja.age}}</p>
+  </div> 
+<!--   template ise div gözükmez -->
+  <template v-for="(ninja,index) in ninjas">
+    <h2>{{index}}. {{ninja.name}}</h2>
+    <p>{{ninja.age}}</p>
+    </template> 
+  <!--   1. ile aynı ama template kullanımı -->
+    <div v-for="(ninja,index) in ninjas">
+      <template v-for="(value,key) in ninja" >
+        <h2>{{key}} - {{value}}</h2>
+      </template>
+      </div>
+  </div>
+
+</body>
+<script src="/app.js"></script>
+</html>
