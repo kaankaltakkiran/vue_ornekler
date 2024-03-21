@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İlk Vuejs Uygulaması</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
+  <div id="app">
+    <h1>{{title}}</h1>
+    <label for="name">Ad:</label>
+   <!--  klavyede yazı yazınca çalışır -->
+    <input type="text" v-on:keyup="isimYaz">
+     <!--  klavyede entre basınca yazılır-->
+    <input type="text" v-on:keyup.prevent="isimYaz">
+
+    <label for="age">Yaş:</label>
+    <!--  klavyede yazı yazınca çalışır -->
+    <input type="text" v-on:keyup="yasYaz()">
+      <!--  klavyede alt entere basınca yazılır-->
+      <input type="text" v-on:keyup.alt.enter="yasYaz()">
+  </div>
+</body>
+<script src="/app.js"></script>
+</html>
