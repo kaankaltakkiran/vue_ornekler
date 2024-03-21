@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İlk Vuejs Uygulaması</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
+  <div id="app">
+    <h1>{{title}}</h1>
+    <label for="name">Ad:</label>
+<!--     v-model çift yönlü çalışır hem veriyi günceller hemde veriyi gösterir -->
+    <input type="text" v-model="userName">
+
+    <label for="age">Yaş:</label>
+    <input type="text" v-model="age">
+    <p>{{userName}}</p>
+    <p>{{age}}</p>
+  </div>
+</body>
+<script src="/app.js"></script>
+</html>
