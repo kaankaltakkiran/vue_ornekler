@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İlk Vuejs Uygulaması</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
+  <div id="app">
+<h1>{{title}}</h1>
+<div v-bind:class="{}">
+</div>
+<div v-on:click="isActive=!isActive" v-bind:class="{'active':isActive}">
+  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque accusamus at eaque repellat qui! Veritatis perspiciatis accusantium quo eius magni eum id earum quibusdam! Iste ipsam architecto quidem maxime inventore? </span>
+</div>
+</body>
+<script src="/app.js"></script>
+</html>
