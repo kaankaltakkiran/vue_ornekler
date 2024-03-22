@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İlk Vuejs Uygulaması</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--   Vuejs kodları burada çalışacak idsi app olan yerde -->
+  <div id="app-1">
+    <h1>{{title}}</h1>
+  </div>
+  <div id="app-2">
+    <h1>{{title}}</h1>
+    <button v-on:click="changeTitle()">2.Başlığı Değiştir</button>
+    <button v-on:click="changeTitle1">1.Başlığı Değiştir</button>
+  </div>
+</body>
+<script src="/app.js"></script>
+</html>
