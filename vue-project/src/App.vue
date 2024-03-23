@@ -37,6 +37,41 @@ methods:{
   updateTitle(newTitle){
     this.title = newTitle;
   }
+},
+//! Vue lifecycle hooks
+// Vue instance oluşturulduğunda çalışan fonksiyonlar
+// beforeCreate, created, beforeMount, mounted, beforeUpdate, updated, beforeDestroy, destroyed
+// beforeCreate: Vue instance oluşturulmadan önce çalışır
+beforeCreate(){
+  alert("beforeCreate");
+},
+// created: Vue instance oluşturulduktan sonra çalışır
+created(){
+  alert("created");
+},
+// beforeMount: Vue instance html elementine bağlanmadan önce çalışır
+beforeMount(){
+  alert("beforeMount");
+},
+// mounted: Vue instance html elementine bağlandıktan sonra çalışır
+mounted(){
+  alert("mounted");
+},
+// beforeUpdate: Vue instance güncellenmeden önce çalışır
+beforeUpdate(){
+  alert("beforeUpdate");
+},
+// updated: Vue instance güncellendikten sonra çalışır
+updated(){
+  alert("updated");
+},
+// beforeDestroy: Vue instance yok edilmeden önce çalışır
+beforeDestroy(){
+  alert("beforeDestroy");
+},
+// destroyed: Vue instance yok edildikten sonra çalışır
+destroyed(){
+  alert("destroyed");
 }
 }
 </script>
