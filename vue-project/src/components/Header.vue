@@ -21,7 +21,9 @@
     methods:{
       // title değişkenini değiştirmez çünkü props ile gelen verileri değiştiremeyiz
       changeTitle(){
-        this.title = "Title changed";
+       /*  emit ile title değişkenini değiştirebiliriz
+        emit ilk parametre olarak event adını ikinci parametre olarak değeri alır */
+        this.$emit('changeTitle', 'Yeni Başlık');
       }
     }
   }

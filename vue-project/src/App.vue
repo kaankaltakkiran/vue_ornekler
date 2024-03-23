@@ -2,7 +2,9 @@
 <!-- bu ksım div id="app" içine yazılacak -->
 <!-- her şey templatein içinde olmalı -->
 <!-- oluşturduğumuz componenti buraya ekleyeceğiz -->
-<app-header v-bind:title="title"></app-header>
+<!-- v-on ile event dinleyebiliriz -->
+<!-- event gelen başlık değeri updateTitle fonksiyonuna gönderilir -->
+<app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
 <app-article v-bind:users="users"></app-article>
 <app-footer v-bind:title="title"></app-footer>
 
@@ -30,8 +32,12 @@ export default {
         {name: "Zahide", spec: "Ev hanımı", show: false},
       ]
     }
+  },
+methods:{
+  updateTitle(newTitle){
+    this.title = newTitle;
   }
-
+}
 }
 </script>
 <!-- scoped ile sadece bu componentte geçerli olacak css tanımlayabiliriz -->
