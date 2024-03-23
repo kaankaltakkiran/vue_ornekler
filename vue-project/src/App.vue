@@ -4,7 +4,7 @@
 <!-- oluşturduğumuz componenti buraya ekleyeceğiz -->
 <app-header v-bind:title="title"></app-header>
 <app-article v-bind:users="users"></app-article>
-<app-footer></app-footer>
+<app-footer v-bind:title="title"></app-footer>
 
 </template>  
 <!-- bu instance yönetmek için -->

@@ -2,7 +2,7 @@
   <!-- bu ksım div id="app" içine yazılacak -->
   <!-- her şey templatein içinde olmalı -->
   <header>
-      <h1>{{ title }}</h1>
+      <h1 v-on:click="changeTitle">{{ title }}</h1>
     </header>
   </template>  
   <!-- bu instance yönetmek için -->
@@ -17,7 +17,13 @@
    data(){
     return{
     }
-   }
+   },
+    methods:{
+      // title değişkenini değiştirmez çünkü props ile gelen verileri değiştiremeyiz
+      changeTitle(){
+        this.title = "Title changed";
+      }
+    }
   }
   </script>
 

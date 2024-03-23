@@ -9,6 +9,7 @@
         <p v-show="user.show">{{ user.spec }}</p>
       </li>
     </ul>
+    <button v-on:click="deleteUser">Kullanıcı Sil</button>
   </div>
   </template>  
   <!-- bu instance yönetmek için -->
@@ -23,6 +24,11 @@ export default{
   data(){
     return {
 
+    }
+  },
+  methods:{
+    deleteUser(){
+      this.users.pop();
     }
   }
 }

@@ -2,12 +2,18 @@
   <!-- bu ksım div id="app" içine yazılacak -->
   <!-- her şey templatein içinde olmalı -->
   <footer>
-    <p>{{copyright}} {{year}}</p>
+    <p>{{copyright}} {{year}} {{ title }}</p>
   </footer>
   </template>  
   <!-- bu instance yönetmek için -->
   <script>
   export default {
+    props:{
+      title:{
+        type:String,
+        required:true
+      }
+    },
     data(){
     return {
       copyright: "Tüm Hakları Saklıdır. (c)",
