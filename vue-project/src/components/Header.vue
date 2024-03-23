@@ -2,12 +2,18 @@
   <!-- bu ksım div id="app" içine yazılacak -->
   <!-- her şey templatein içinde olmalı -->
   <header>
-      <h1>Sayfamızın Başlığı</h1>
+      <h1>{{ title }}</h1>
     </header>
   </template>  
   <!-- bu instance yönetmek için -->
   <script>
   export default {
+    props:{
+      title:{
+        type:String,
+        required:true
+      }
+    },
    data(){
     return{
     }
