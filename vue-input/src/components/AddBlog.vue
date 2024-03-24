@@ -67,7 +67,7 @@ export default{
         var self = this;
         /* veri getir ve json a çevir */
        /*  https://jsonplaceholder.typicode.com/posts */
-        fetch("  https://vue-input-5f104-default-rtdb.firebaseio.com/posts.json", {
+        fetch("https://vue-input-5f104-default-rtdb.firebaseio.com/posts.json", {
 
             method: "POST",
         /*     auth veya  karakter tanımlamak için kullanılır */

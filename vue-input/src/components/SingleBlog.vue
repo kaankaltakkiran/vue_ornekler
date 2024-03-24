@@ -6,7 +6,7 @@ const vRainbow = {
 <template>
   <div id="single-blog">
     <h2 v-rainbow>{{$filters.upperGlobalFilter(blog.title) }} </h2>
-    <p>Content: {{ blog.body }} </p>
+    <p>Content: {{ blog.content }} </p>
   </div>
 </template>
 <script>
@@ -35,10 +35,10 @@ export default {
   created() {
     // instance bilgilerini al 
     var self = this;
-    fetch("https://jsonplaceholder.typicode.com/posts/"+self.id, {
+    fetch("https://vue-input-5f104-default-rtdb.firebaseio.com/posts/"+self.id+".json", {
       method: "GET",
       headers: {
-        "Content-Type": "content/type"
+        "Content-Type": "application/json"
       },
     }).then((res) => res.json())
       .then((function (json) {

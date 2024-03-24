@@ -9,7 +9,7 @@ const vRainbow = {
     <input type="text" v-model="keyword" placeholder="Search for blog title" />
     <div class="single-blog" v-for="blog in filtredBlogs">
     <router-link v-bind:to="'/blog/'+blog.id"> <h2 v-rainbow>{{$filters.upperGlobalFilter(blog.title) }} </h2></router-link>
-    <p>Content: {{ blog.body }} </p>
+    <p>Content: {{ blog.content }} </p>
   </div>
   </div>
 </template>
@@ -38,13 +38,20 @@ export default {
   created() {
     // instance bilgilerini al 
     var self = this;
-    fetch("https://jsonplaceholder.typicode.com/posts", {
+    fetch("https://vue-input-5f104-default-rtdb.firebaseio.com/posts.json", {
       method: "GET",
       headers: {
-        "Content-Type": "content/type"
+        "Content-Type": "application/json"
       },
     }).then((res) => res.json())
       .then((function (json) {
+        //! json verisi diziye çevirilir
+        var blogArray = [];
+        for (let key in json) {
+          json[key].id = key;
+          blogArray.push(json[key]);
+          self.blogs = blogArray;
+        }
         console.log(json);
         /* 10 tanesini al * slice ile */
         self.blogs = json.slice(0, 10);
