@@ -6,7 +6,8 @@ const vRainbow = {
 <template>
   <div id="show-blogs">
     <h1>Blogs</h1>
-    <div class="single-blog" v-for="blog in blogs">
+    <input type="text" v-model="keyword" placeholder="Search for blog title" />
+    <div class="single-blog" v-for="blog in filtredBlogs">
     <h2 v-rainbow>{{$filters.upperGlobalFilter(blog.title) }} </h2>
     <p>Content: {{ blog.body }} </p>
   </div>
@@ -16,7 +17,8 @@ const vRainbow = {
 export default {
   data() {
     return {
-      blogs: []
+      blogs: [],
+      keyword: "",
     };
   },
   methods: {
@@ -29,6 +31,12 @@ export default {
     // computed buraya
     lowerTitle() {
       return (title) => title.toLowerCase();
+    },
+    filtredBlogs(){
+     /*  tüm blogları bul ve bu keyword ile filtrele */
+      return this.blogs.filter((blog) => {
+        return blog.title.match(this.keyword);
+      });
     }
   },
   /* instance oluştuğunda çalışır */
