@@ -7,7 +7,7 @@ const vRainbow = {
   <div id="show-blogs">
     <h1>Blogs</h1>
     <div class="single-blog" v-for="blog in blogs">
-    <h2 v-rainbow>{{ blog.title }} </h2>
+    <h2 v-rainbow>{{$filters.upperGlobalFilter(blog.title) }} </h2>
     <p>Content: {{ blog.body }} </p>
   </div>
   </div>
@@ -18,6 +18,18 @@ export default {
     return {
       blogs: []
     };
+  },
+  methods: {
+    // methodler buraya
+    upperTitle(title) {
+      return title.toUpperCase();
+    }
+  },
+  computed: {
+    // computed buraya
+    lowerTitle() {
+      return (title) => title.toLowerCase();
+    }
   },
   /* instance oluştuğunda çalışır */
   created() {
