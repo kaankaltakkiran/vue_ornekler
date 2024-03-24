@@ -1,7 +1,8 @@
 <template>
  <div id="add-blog">
         <h2>Yeni Blog Post Ekleme Formu</h2>
-        <form action="#">
+     <!--    form gönderilmediyse göster -->
+        <form v-if="!submitted" action="#">
             <label for="title">Blog Başlığı</label>
             <input type="text" v-model.lazy="blog.title" required>
 
@@ -26,9 +27,12 @@
                 <option value="">Lütfen Yazar Seçiniz</option>
                 <option v-for="author in authors" v-bind:value="author">{{ author }}</option>
             </select>
-            <button v-on:click.prevent="post">Blog'u Kaydet</button>
+            <button  v-on:click.prevent="post">Blog'u Kaydet</button>
         </form>
-        <div id="preview">
+        <div v-if="submitted">Form succsesfuly
+        <button v-on:click="newBlog">Yeni Blog Ekle</button>
+        </div>
+        <div v-if="!submitted" id="preview">
             <h3>Blog Ön İzleme</h3>
             <p>Blog Başlığı: {{ blog.title }}</p>
             <p>Blog İçeriği: {{ blog.content }}</p>
@@ -53,11 +57,42 @@ export default{
       categories:[],
       author:''
     },
-    authors: ["Gökhun", "Elif", "Han", "Alper", "Yağız", "Melih"]
+    authors: ["Gökhun", "Elif", "Han", "Alper", "Yağız", "Melih"],
+    submitted: false
     }
   },
   methods:{
-  
+    post(){
+       /*  bu instance tanısın diye değişkene ata */
+        var self = this;
+        /* veri getir ve json a çevir */
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+
+            method: "POST",
+        /*     auth veya  karakter tanımlamak için kullanılır */
+            headers: {
+                "Content-Type": "content/type"
+            },
+           /*  gönderilecek veri */
+            body:{
+                title: this.blog.title,
+                body: this.blog.content,
+                userId: 1,
+            }
+
+        }).then((res) => res.json())
+    .then((function (json) {
+        console.log(json);
+        self.submitted = true;
+    }))
+    .catch((function(err){
+        console.log(err);
+        self.submitted = false;
+    }));
+    },
+    newBlog(){
+      this.submitted = false;
+    }
   }
 }
 </script>
