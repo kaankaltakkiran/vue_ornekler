@@ -66,19 +66,17 @@ export default{
        /*  bu instance tanısın diye değişkene ata */
         var self = this;
         /* veri getir ve json a çevir */
-        fetch("https://jsonplaceholder.typicode.com/posts", {
+       /*  https://jsonplaceholder.typicode.com/posts */
+        fetch("  https://vue-input-5f104-default-rtdb.firebaseio.com/posts.json", {
 
             method: "POST",
         /*     auth veya  karakter tanımlamak için kullanılır */
             headers: {
-                "Content-Type": "content/type"
+                "Content-Type": "application/json"
             },
            /*  gönderilecek veri */
-            body:{
-                title: this.blog.title,
-                body: this.blog.content,
-                userId: 1,
-            }
+      /*      json tipinde gönder  */
+            body: JSON.stringify(self.blog)
 
         }).then((res) => res.json())
     .then((function (json) {
