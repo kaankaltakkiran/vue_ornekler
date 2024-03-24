@@ -5,11 +5,10 @@ const vRainbow = {
 </script>
 <template>
   <div id="show-blogs">
-    <h1>Blogs</h1>
+    <h1>Blogs Title List</h1>
     <input type="text" v-model="keyword" placeholder="Search for blog title" />
     <div class="single-blog" v-for="blog in filtredBlogs">
     <h2 v-rainbow>{{$filters.upperGlobalFilter(blog.title) }} </h2>
-    <p>Content: {{ blog.body }} </p>
   </div>
   </div>
 </template>
