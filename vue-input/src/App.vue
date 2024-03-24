@@ -1,7 +1,9 @@
 <template>
-<!-- <add-blog></add-blog> -->
-<show-blogs></show-blogs>
-<list-blogs></list-blogs>
+  <div>
+  <!--   Tanımlı routeları görüntülemek -->
+    <router-view>
+    </router-view>
+  </div>
 </template>
 
 <script>
