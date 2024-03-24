@@ -4,13 +4,9 @@ const vRainbow = {
 }
 </script>
 <template>
-  <div id="show-blogs">
-    <h1>Blogs</h1>
-    <input type="text" v-model="keyword" placeholder="Search for blog title" />
-    <div class="single-blog" v-for="blog in filtredBlogs">
-    <router-link v-bind:to="'/blog/'+blog.id"> <h2 v-rainbow>{{$filters.upperGlobalFilter(blog.title) }} </h2></router-link>
+  <div id="single-blog">
+    <h2 v-rainbow>{{$filters.upperGlobalFilter(blog.title) }} </h2>
     <p>Content: {{ blog.body }} </p>
-  </div>
   </div>
 </template>
 <script>
@@ -18,8 +14,9 @@ import mixins from "../mixins";
 export default {
   data() {
     return {
-      blogs: [],
-      keyword: "",
+    /*  routedan gelen id */
+    id: this.$route.params.id,
+    blog: {}
     };
   },
   methods: {
@@ -38,7 +35,7 @@ export default {
   created() {
     // instance bilgilerini al 
     var self = this;
-    fetch("https://jsonplaceholder.typicode.com/posts", {
+    fetch("https://jsonplaceholder.typicode.com/posts/"+self.id, {
       method: "GET",
       headers: {
         "Content-Type": "content/type"
@@ -46,8 +43,7 @@ export default {
     }).then((res) => res.json())
       .then((function (json) {
         console.log(json);
-        /* 10 tanesini al * slice ile */
-        self.blogs = json.slice(0, 10);
+        self.blog = json;
       }))
       .catch((function (err) {
         console.log(err);
@@ -60,15 +56,8 @@ export default {
 
 
 <style scoped>
-#show-blogs{
-    max-width: 800px;
-    margin: 0px auto;
-}
-.single-blog{
-    padding: 20px;
-    margin: 20px 0;
-    box-sizing: border-box;
-    background-color: #e2e2e2;
-    border-radius: 5px;
+#single-blog{
+    width: 960px;
+    margin:10px auto;
 }
 </style>
