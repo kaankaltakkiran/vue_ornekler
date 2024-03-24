@@ -1,0 +1,53 @@
+<template>
+  <div id="show-blogs">
+    <h1>Blogs</h1>
+    <div class="single-blog" v-for="blog in blogs">
+    <h2>Title:{{ blog.title }} </h2>
+    <p>Content: {{ blog.body }} </p>
+  </div>
+  </div>
+</template>
+<script>
+export default{
+  data(){
+    return{
+      blogs:[]
+  }
+  },
+ /*  instance oluştuğunda çalışır */
+  created(){
+    // instance bilgilerini al 
+    var self = this;
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+
+method: "GET",
+/*     auth veya  karakter tanımlamak için kullanılır */
+headers: {
+    "Content-Type": "content/type"
+},
+}).then((res) => res.json())
+.then((function (json) {
+console.log(json);
+/* 10 tanesini al * slice ile */
+self.blogs = json.slice(0, 10);
+}))
+.catch((function(err){
+console.log(err);
+}));
+},
+}
+</script>
+
+<style scoped>
+#show-blogs{
+    max-width: 800px;
+    margin: 0px auto;
+}
+.single-blog{
+    padding: 20px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    background-color: #e2e2e2;
+    border-radius: 5px;
+}
+</style>
