@@ -1,42 +1,46 @@
+<script setup>
+const vRainbow = {
+    mounted: (el) => el.style.color = "#" + Math.random().toString().slice(2, 8)
+}
+</script>
 <template>
   <div id="show-blogs">
     <h1>Blogs</h1>
     <div class="single-blog" v-for="blog in blogs">
-    <h2>Title:{{ blog.title }} </h2>
+    <h2 v-rainbow>{{ blog.title }} </h2>
     <p>Content: {{ blog.body }} </p>
   </div>
   </div>
 </template>
 <script>
-export default{
-  data(){
-    return{
-      blogs:[]
-  }
+export default {
+  data() {
+    return {
+      blogs: []
+    };
   },
- /*  instance oluştuğunda çalışır */
-  created(){
+  /* instance oluştuğunda çalışır */
+  created() {
     // instance bilgilerini al 
     var self = this;
     fetch("https://jsonplaceholder.typicode.com/posts", {
-
-method: "GET",
-/*     auth veya  karakter tanımlamak için kullanılır */
-headers: {
-    "Content-Type": "content/type"
-},
-}).then((res) => res.json())
-.then((function (json) {
-console.log(json);
-/* 10 tanesini al * slice ile */
-self.blogs = json.slice(0, 10);
-}))
-.catch((function(err){
-console.log(err);
-}));
-},
-}
+      method: "GET",
+      headers: {
+        "Content-Type": "content/type"
+      },
+    }).then((res) => res.json())
+      .then((function (json) {
+        console.log(json);
+        /* 10 tanesini al * slice ile */
+        self.blogs = json.slice(0, 10);
+      }))
+      .catch((function (err) {
+        console.log(err);
+      }));
+  },
+};
 </script>
+
 
 <style scoped>
 #show-blogs{
